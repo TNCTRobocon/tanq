@@ -1,0 +1,3 @@
+set_pin_assignment	{ base_clk }	{ LOCATION = K14; IOSTANDARD = LVCMOS33; }
+set_pin_assignment	{ base_reset_n }	{ LOCATION = K16; IOSTANDARD = LVCMOS33; }
+
