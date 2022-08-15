@@ -1,0 +1,9 @@
+*.area
+*.bit
+*.db
+*.timing
+*.tsm
+*.log
+*.out
+*.vcd
+*.bak
