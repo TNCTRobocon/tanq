@@ -1,3 +1,8 @@
 set_pin_assignment	{ base_clk }	{ LOCATION = K14; IOSTANDARD = LVCMOS33; }
 set_pin_assignment	{ base_reset_n }	{ LOCATION = K16; IOSTANDARD = LVCMOS33; }
+set_pin_assignment	{ motor0_dir }	{ LOCATION = A2; }
+set_pin_assignment	{ motor0_pulse }	{ LOCATION = A3; }
+set_pin_assignment	{ qei0_quad[0] }	{ LOCATION = A5; }
+set_pin_assignment	{ qei0_quad[1] }	{ LOCATION = A4; }
+
 

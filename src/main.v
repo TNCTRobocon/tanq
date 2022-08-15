@@ -1,10 +1,10 @@
 module main(
 	input base_clk, base_reset_n,
-	output motor0_pulse,motor0_dir
-
+	output motor0_pulse,motor0_dir,
+	input [1:0] qei0_quad,
+	output dummy
 );
-
-
+ 
 // clock&reset,pll
 
 parameter base_freq =  24_000_000;// 24MHz
@@ -26,5 +26,10 @@ assign fast_reset = base_reset || !fast_lock;
 // pwm
 wire pwm0_dir,pwm0_pulse;
 pwm pwm0(.reset(fast_reset),.clock(fast_clk),.peirod(fast_freq),.compare(fast_freq/2),.count(),.pulse(motor0_pulse));
+
+wire [31:0]qei0_position;
+qei qei0(.reset(fast_reset),.clock(fast_clk),.qei_quad(qei0_quad),.qei_position(qei0_position));
+
+assign dummy=0;
 
 endmodule

@@ -13,6 +13,7 @@
             <File>src/pwm.v</File>
             <File>src/main.v</File>
             <File>src/al_ip/pll_120mhz.v</File>
+            <File>src/qei.v</File>
         </Verilog>
         <ADC_FILE>io.adc</ADC_FILE>
         <SDC_FILE>limit.sdc</SDC_FILE>
@@ -27,7 +28,7 @@
         <SimProperty/>
     </Property>
     <Project_Settings>
-        <Step_Last_Change>2022-08-08 08:07:39</Step_Last_Change>
+        <Step_Last_Change>2022-08-15 14:05:19</Step_Last_Change>
         <Current_Step>0</Current_Step>
         <Step_Status>true</Step_Status>
     </Project_Settings>
