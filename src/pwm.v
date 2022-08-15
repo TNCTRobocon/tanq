@@ -1,23 +1,26 @@
-module pwm(
-        input				clock,reset,
-        input      [31:0]   pwm_peirod,pwm_compare,
-        output 			    pwm_pulse,
-        output              pwm_fetch
+module pwm#(
+        parameter width = 32
+    )(
+        input               clock,reset,
+        input [width-1:0]   pwm_period,pwm_compare,
+        output  		    pwm_pulse,
+        output              pwm_done
     );
 
-    reg [31:0] 	count,period,compare;
+    reg  [width-1:0] count,period,compare;
+    wire [width-1:0] next=count+1'b1;
     always @(posedge clock,posedge reset)begin
         if (reset)begin
-            count <=0;
-            period<=0;
-            compare<=0;
+            count<=0;
+            period<=pwm_period;
+            compare<=pwm_compare;
         end else begin
-            if (count==period)begin
+            if (next==period || period==0)begin
                 count<=0;
-                period<=pwm_peirod;
+                period<=pwm_period;
                 compare<=pwm_compare;
             end else begin
-                count<=count+1;
+                count<=next;
                 period<=period;
                 compare<=compare;
             end
@@ -25,6 +28,6 @@ module pwm(
     end
 
     assign pwm_pulse=count<compare;
-    assign pwm_fetch=count==0;
+    assign pwm_done=count==0;
 
 endmodule
